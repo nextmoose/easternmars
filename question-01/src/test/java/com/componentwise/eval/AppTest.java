@@ -5,6 +5,7 @@ import java.io.IOException;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
+import static junit.framework.Assert.assertFalse;
 import static junit.framework.Assert.assertTrue;
 
 /**
@@ -39,7 +40,11 @@ public class AppTest
         assertTrue( true );
     }
     
-    public void testFailure() throws IOException{
-        assertTrue(new App().test(getClass().getResourceAsStream("sample.xml")));
+    public void testBad() throws IOException{
+        assertFalse(new App().test(getClass().getResourceAsStream("good.xml")));
+    }
+    
+    public void testGood() throws IOException{
+        assertTrue(new App().test(getClass().getResourceAsStream("bad.xml")));
     }
 }
