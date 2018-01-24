@@ -1,4 +1,5 @@
 package com.componentwise.eval;
+import java.io.InputStream;
 
 /**
  * Hello world!
@@ -6,8 +7,7 @@ package com.componentwise.eval;
  */
 public class App 
 {
-    public static void main( String[] args )
-    {
-        System.out.println( "Hello World!" );
+    boolean test(InputStream in) {
+        return true;
     }
 }

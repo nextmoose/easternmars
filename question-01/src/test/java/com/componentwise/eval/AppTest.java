@@ -1,8 +1,11 @@
 package com.componentwise.eval;
 
+import java.io.InputStream;
+import java.io.IOException;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
+import static junit.framework.Assert.assertTrue;
 
 /**
  * Unit test for simple App.
@@ -34,5 +37,9 @@ public class AppTest
     public void testApp()
     {
         assertTrue( true );
+    }
+    
+    public void testFailure() throws IOException{
+        assertTrue(new App().test(getClass().getResourceAsStream("sample.xml")));
     }
 }
