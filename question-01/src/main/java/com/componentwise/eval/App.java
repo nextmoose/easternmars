@@ -18,7 +18,9 @@ public class App
         }
         List<Integer> tag = new ArrayList<>();
         if(r==60){
-            
+            for(r=in.read();r!=62;r=in.read()){
+                tag.add(r);
+            }
         }
         return true;
     }

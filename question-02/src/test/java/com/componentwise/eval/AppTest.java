@@ -3,6 +3,7 @@ package com.componentwise.eval;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
+import static junit.framework.Assert.assertTrue;
 
 /**
  * Unit test for simple App.
@@ -27,12 +28,12 @@ public class AppTest
     {
         return new TestSuite( AppTest.class );
     }
-
-    /**
-     * Rigourous Test :-)
-     */
-    public void testApp()
-    {
-        assertTrue( true );
+    
+    public void testHappy(){
+        assertTrue(new UserKey("a", "b").equals(new UserKey("a", "b")));
+    }
+    
+    public void testOtherIsNotUserKey(){
+        assertFalse(new UserKey("a", "b").equals("Hello World"));
     }
 }
