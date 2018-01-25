@@ -33,6 +33,14 @@ public class AppTest
         assertTrue(new UserKey("a", "b").equals(new UserKey("a", "b")));
     }
     
+    public void testNameNotEqual(){
+        assertFalse(new UserKey("a", "b").equals(new UserKey("b", "b")));
+    }
+    
+    public void testNameNull1(){
+        assertFalse(new UserKey(null, "b").equals(new UserKey("a", "b")));
+    }
+    
     public void testOtherIsNotUserKey(){
         assertFalse(new UserKey("a", "b").equals("Hello World"));
     }
