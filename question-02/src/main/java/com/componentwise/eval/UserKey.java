@@ -1,10 +1,5 @@
 package com.componentwise.eval;
 
-import java.util.NoSuchElementException;
-import java.util.Optional;
-import static java.util.Optional.empty;
-import static java.util.Optional.of;
-
 public class UserKey {
 
 	private String name;
@@ -22,27 +17,20 @@ public class UserKey {
 	public String getUserID() {
 		return userid;
 	}
-	
-	Optional<UserKey> cast(Object object){
-		try{
-		    return of(getClass().cast(object));
-		}catch(ClassCastException cause){
-			return empty();
-		}
-	}
-	
-	
-	boolean evaluate(Optional<Boolean> delta){
-		try{
-			return delta.get();
-		}catch(NoSuchElementException cause) {
-			return false;
-		}
-	}
-	
+
 	@Override
 	public boolean equals(final Object other){
-	    return evaluate(cast(other).map(othr -> of(this.name).equals(of(othr.name))));
+	    return other instanceof UserKey ? ((UserKey)(other)).equals(this) : false;
+	}
+	
+	private boolean equals(UserKey other){
+		if(this.name==null){
+			return false;
+		}else if(this.userid==null){
+			return false;
+		}else{
+			return this.name.equals(other.name) && this.userid.equals(other.userid);
+		}
 	}
 }
 	
